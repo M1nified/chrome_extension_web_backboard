@@ -60,6 +60,9 @@ $(document).on('click','.pwj_last_color',function(){
 
 
 var runWebNote = function(){
+	if($('.pwj_blackboard').length>0){
+		return;
+	}
 	console.log("LOADED")
 	setEnv();
 	paintPalette = new paintPalette();
