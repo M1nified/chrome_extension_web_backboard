@@ -21,7 +21,8 @@
   "permissions": [
     "storage",
     "tabs",
-    "activeTab"
+    "activeTab",
+    "desktopCapture"
   ],
   "short_name": "Page Board",
   "version": "0.1.1.1",

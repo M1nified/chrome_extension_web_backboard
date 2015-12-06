@@ -18,17 +18,20 @@ canvas#pwj_draw{
 	position:fixed;
 	left:0px;
 	bottom:0px;
-	height:25px;
+	height:31px;
 	width:100%;
 	background-color: #aaa;
-	box-shadow: 0 -2px 20px #000;
+	box-shadow: 0 -2px 10px #000;
+	padding: 3px;
 	z-index: 9999;
 	opacity:0.3;
+	box-sizing: border-box;
 	&:hover{
 		opacity:1;
 	}
 	>*{
-		display: inline-block;
+		display: flex;
+		float:left;
 	}
 }
 .pwj_color_picker{
@@ -42,6 +45,24 @@ canvas#pwj_draw{
 	//width:50px;
 	//height:25px;
 	//float:left;
+	box-shadow: rgba(255, 255, 255, 0.298039) 0px 1px 0px 0px inset, rgba(100, 100, 100, 0.298039) 0px 1px 1px 0px;
+	border-radius: 3px;
+	border-width: 1px;
+	border-color: rgb(23, 119, 183);
+	margin:1px;
+}
+button.pwj_button{
+	line-height: 21px;
+	padding: 1px 8px 1px 8px;
+}
+.pwj_show{
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	display: none;
+}
+.pwj_right{
+	float: right !important;
 }
 .pwj_note_box{
 	position:absolute;

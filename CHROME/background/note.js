@@ -4,7 +4,7 @@ function paintPalette(){
 			// console.log(last_colors)
 			var ret='';
 			for(i in last_colors){
-				ret+='<button class="pwj_last_color" data-color="'+last_colors[i]+'" style="width: 50px;height:25px; background-color:'+last_colors[i]+';"></button>'
+				ret+='<button class="pwj_last_color pwj_button" data-color="'+last_colors[i]+'" style="width: 50px;height:25px; background-color:'+last_colors[i]+';"></button>'
 			}
 			return ret;
 		}.call())
@@ -54,6 +54,9 @@ function paintPalette(){
 	}
 }
 //var paintPalette = {};
+$(document).on('click','.pwj_last_color',function(){
+	paintPalette.setColor($(this).data('color'));
+})
 
 
 var runWebNote = function(){
@@ -64,15 +67,20 @@ var runWebNote = function(){
 var setEnv = function(){
 	$(".pwj_elem").remove();
 	if(!$(".pwj_elem")[0]){
-		$("body").append('<div class="pwj_draw_box pwj_elem">\
+		$("body").append('<section class="pwj_blackboard">\
+		<div class="pwj_draw_box pwj_elem">\
 		<canvas id="pwj_draw"></canvas>\
 		</div>\
 		<div class="pwj_elem" id="pwj_tool_box">\
-		<input type="color" class="pwj_color_picker" title="Pick color">\
+		<input type="color" class="pwj_color_picker pwj_button" title="Pick color">\
 		<section id="pwj_last_colors"></section>\
 		<button class="pwj_button undo_canvas" title="Undo paint">Undo</button>\
+		<button class="pwj_button pwj_right pwj_hide" title="Hide blackboard">Hide</button>\
 		</div>\
-		<section class="pwj_elem" id="pwj_spawner"></section>')
+		<section class="pwj_elem" id="pwj_spawner"></section>\
+		</section>\
+		<button class="pwj_button pwj_show">&lt;</button>\
+		')
 		setLogic();
 	}
 	optimizeView();
@@ -87,6 +95,14 @@ var optimizeView = function(){
 	$("canvas#pwj_draw").attr("width",width).attr("height",height)
 }
 var setLogic = function(){
+	$('.pwj_hide').on('click',function clickHide(){
+		$('.pwj_blackboard').hide();
+		$('.pwj_show').show();
+	});
+	$('.pwj_show').on('click',function clickHide(){
+		$('.pwj_blackboard').show();
+		$('.pwj_show').hide();
+	});
 	$(".pwj_draw_box").on('dblclick',function(evt){
 		//console.log(evt)
 		spawnNote(evt);
