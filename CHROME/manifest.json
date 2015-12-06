@@ -24,7 +24,7 @@
     "activeTab"
   ],
   "short_name": "Page Board",
-  "version": "0.1.1",
+  "version": "0.1.1.1",
   "web_accessible_resources": [
     "/lib/jquery.min.js"
   ]
