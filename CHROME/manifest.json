@@ -1,0 +1,31 @@
+{
+  "author": "ProWebJect - Michał Góra",
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "/lib/jquery.min.js",
+      "/background/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+    },
+    "default_title": "Page Note"
+  },
+  "description": "Turns the website into blackboard",
+  "icons": {
+  },
+  "manifest_version": 2,
+  "name": "Page Note",
+  "options_page": "/background/options.html",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "short_name": "Page Board",
+  "version": "0.1.1",
+  "web_accessible_resources": [
+    "/lib/jquery.min.js"
+  ]
+}
